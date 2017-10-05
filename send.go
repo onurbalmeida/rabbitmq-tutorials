@@ -38,13 +38,11 @@ func main() {
     	var text string
 
     	for text != "exit" {
-
 		fmt.Print("Enter your text: ")
 		scanner.Scan()
 		text = scanner.Text()
-
+		
 		if text != "exit" {
-
 			err = ch.Publish(
 			"",     // exchange
 			q.Name, // routing key
