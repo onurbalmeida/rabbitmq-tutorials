@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-    "bufio"
-    "os"
+	"bufio"
+	"os"
 	"log"
 	"github.com/streadway/amqp"
 )
@@ -35,15 +35,15 @@ func main() {
 	failOnError(err, "Failed to declare a queue")
 
 	scanner := bufio.NewScanner(os.Stdin)
-    var text string
+    	var text string
 
-    for text != "exit" {
+    	for text != "exit" {
 
-        fmt.Print("Enter your text: ")
-        scanner.Scan()
-        text = scanner.Text()
+		fmt.Print("Enter your text: ")
+		scanner.Scan()
+		text = scanner.Text()
 
-        if text != "exit" {
+		if text != "exit" {
 
 			err = ch.Publish(
 			"",     // exchange
@@ -57,6 +57,6 @@ func main() {
 
 			log.Printf(" [x] Sent %s", text)
 			failOnError(err, "Failed to publish a message")
-        }
-    }
+        	}
+    	}
 }
